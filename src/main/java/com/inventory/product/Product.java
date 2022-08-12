@@ -1,8 +1,14 @@
 package com.inventory.product;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
 	
+	@Id
 	private int id;
+	
 	private String productName;
 	private float price;
 	private String description;

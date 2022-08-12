@@ -5,11 +5,15 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class ProductService {
+	
+	@Autowired
+	private ProductRepository productRepository;
 	
 	List<Product> products = new ArrayList<>(Arrays.asList(new Product(1,"Mobile",5000,"This is Mobile"),
 				new Product(2,"Laptop",10000,"This is Laptop"),
@@ -17,33 +21,26 @@ public class ProductService {
 				));
 	
 	public List<Product> getAllProducts() {
-		return products;
+		
+		return (List<Product>) productRepository.findAll();
 		
 	}
 	
 	public Product getProduct(int id) {
 		
-		return products.stream().filter(p -> p.getId()==(id)).findFirst().get();
+		
 		
 	}
-
+ 
 	public void addProduct(Product product) {
-		products.add(product);
+		productRepository.save(product);
 	}
 
 	public void updateProduct(int id, Product product) {
 		
-		for(int i =0; i<products.size();i++) {
-			Product p= products.get(i);
-			if (p.getId()==id) {
-				products.set(i, product);
-				return;
+		productRepository.save(product);
 			}
 			
-		}
-		
-		
-	}
 
 	public void deleteProduct(int id) {
 		products.removeIf(p->p.getId()==id);
