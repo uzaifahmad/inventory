@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.inventory.product.ProductService;
+import com.inventory.model.ProductService;
 
 @Controller
 public class InventoryController 

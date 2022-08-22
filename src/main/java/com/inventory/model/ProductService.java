@@ -1,4 +1,4 @@
-package com.inventory.product;
+package com.inventory.model;
 
 
 
@@ -20,7 +20,6 @@ public class ProductService {
 //				));
 	
 	public List<Product> getAllProducts() {
-		System.out.println("getAllProducts() ");
 		
 		return (List<Product>) productRepository.findAll();
 		

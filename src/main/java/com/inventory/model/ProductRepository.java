@@ -1,4 +1,4 @@
-package com.inventory.product;
+package com.inventory.model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,14 +1,18 @@
-package com.inventory.product;
+package com.inventory.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "inventory")
 public class Product {
 	
 	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String productName;
@@ -32,18 +36,24 @@ public class Product {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+    @Column(name = "productName")
 	public String getProductName() {
 		return productName;
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+	
+    @Column(name = "price")
 	public float getPrice() {
 		return price;
 	}
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	
+	@Column(name = "description")
 	public String getDescription() {
 		return description;
 	}
